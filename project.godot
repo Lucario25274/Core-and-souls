@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Core and Souls"
-run/main_scene="uid://culj7uwvwwq5y"
+run/main_scene="uid://dlj3is8qteou7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://art/icon.svg"
 
 [display]
 
-window/stretch/scale=4.0
+window/stretch/scale=2.0
 
 [input]
 

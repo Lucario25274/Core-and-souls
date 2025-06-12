@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do2l6p0un6dnq"
-path="res://.godot/imported/CliffTileset.png-cfb40e6d5d5d85be6eb7a140cc99d23b.ctex"
+uid="uid://bc0vjkbtedeql"
+path="res://.godot/imported/CliffTileset3.0.png-f08ab5394bcb8d1e1df7c99764be6525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/titleset/CliffTileset.png"
-dest_files=["res://.godot/imported/CliffTileset.png-cfb40e6d5d5d85be6eb7a140cc99d23b.ctex"]
+source_file="res://art/titleset/CliffTileset3.0.png"
+dest_files=["res://.godot/imported/CliffTileset3.0.png-f08ab5394bcb8d1e1df7c99764be6525.ctex"]
 
 [params]
 
