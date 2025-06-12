@@ -258,21 +258,19 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(14, 27)
 
 [node name="player" type="CharacterBody2D"]
-y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -19)
-scale = Vector2(0.796875, 0.765625)
+position = Vector2(-3, 0)
 sprite_frames = SubResource("SpriteFrames_ygbnx")
-animation = &"idle_right"
+animation = &"walk_right"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -8)
-shape = SubResource("CircleShape2D_qhqgy")
+position = Vector2(-6, 8.5)
+shape = SubResource("RectangleShape2D_qhqgy")
