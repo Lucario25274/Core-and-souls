@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://byib0mrhwhxqy"]
+[gd_scene load_steps=28 format=3 uid="uid://byib0mrhwhxqy"]
 
 [ext_resource type="Script" uid="uid://1f6uprk7155l" path="res://script/slime.gd" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://o5hqn52e6lma" path="res://art/charakter/slime-Sheet.png" id="2_n6pvg"]
@@ -22,6 +22,22 @@ region = Rect2(96, 25, 32, 25)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5wyi"]
 atlas = ExtResource("2_n6pvg")
 region = Rect2(128, 25, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2gj0"]
+atlas = ExtResource("2_n6pvg")
+region = Rect2(32, 50, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6pvg"]
+atlas = ExtResource("2_n6pvg")
+region = Rect2(64, 50, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbccl"]
+atlas = ExtResource("2_n6pvg")
+region = Rect2(96, 50, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24adn"]
+atlas = ExtResource("2_n6pvg")
+region = Rect2(128, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l8pv"]
 atlas = ExtResource("2_n6pvg")
@@ -93,8 +109,20 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2gj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6pvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbccl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24adn")
+}],
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -111,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a02ik")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -156,6 +184,9 @@ radius = 60.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2gj0"]
 size = Vector2(12, 9)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
+radius = 15.0
+
 [node name="slime" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_p2gj0")
@@ -165,8 +196,10 @@ y_sort_enabled = true
 position = Vector2(-1.5, -11.25)
 scale = Vector2(0.90625, 0.94)
 sprite_frames = SubResource("SpriteFrames_pbccl")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="detection-area" type="Area2D" parent="AnimatedSprite2D"]
 collision_layer = 2
@@ -181,6 +214,16 @@ y_sort_enabled = true
 position = Vector2(-1, -5.5)
 shape = SubResource("RectangleShape2D_p2gj0")
 
+[node name="slime_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime_hitbox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_p2gj0")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+
 [connection signal="area_entered" from="AnimatedSprite2D/detection-area" to="." method="_on_detectionarea_area_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/detection-area" to="." method="_on_detectionarea_body_entered"]
 [connection signal="body_exited" from="AnimatedSprite2D/detection-area" to="." method="_on_detectionarea_body_exited"]
+[connection signal="body_entered" from="slime_hitbox" to="." method="_on_slime_hitbox_body_entered"]
+[connection signal="body_exited" from="slime_hitbox" to="." method="_on_slime_hitbox_body_exited"]
