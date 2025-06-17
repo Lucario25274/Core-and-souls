@@ -20,7 +20,10 @@ var last_direction: int = 1  # 1 für rechts, -1 für links
 
 func _physics_process(_delta):
 	enemy_attack()
-	#attack()
+	current_camera()
+	move_and_slide()
+	attack()
+
 	if health <= 0:
 		player_alive = false  #play end_screen
 		health = 0
@@ -30,7 +33,7 @@ func _physics_process(_delta):
 
 	velocity.x = Input.get_axis("xbox_left", "xbox_right") * SPEED
 	velocity.y = Input.get_axis("xbox_up", "xbox_down") * SPEED
-	move_and_slide()
+	#move_and_slide()
 
 	if velocity.x == 0 and velocity.y == 0:
 		if not attack_ip:  # Prüfe, ob attack_ip == false
@@ -41,7 +44,7 @@ func _physics_process(_delta):
 			pass
 	else:
 		set_animation("walk_")
-	attack()
+	#attack()
 
 
 
@@ -64,6 +67,15 @@ func _get_sprite_direction():
 		sprite_direction = "right"
 
 	return sprite_direction
+
+func current_camera():
+	if global.current_scene == "world":
+		$world_camera.enabled = true
+		$sideworld_camera.enabled = false
+	elif global.current_scene == "sideworld":
+		$world_camera.enabled = false
+		$sideworld_camera.enabled = true
+
 
 func player():
 	pass

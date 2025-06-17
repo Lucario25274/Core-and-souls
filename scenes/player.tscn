@@ -291,6 +291,29 @@ shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 
+[node name="world_camera" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
+limit_left = 0
+limit_top = 0
+limit_right = 415
+limit_bottom = 238
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="sideworld_camera" type="Camera2D" parent="."]
+position = Vector2(36, -34)
+zoom = Vector2(3.5, 3.5)
+limit_left = 0
+limit_top = 0
+limit_right = 415
+limit_bottom = 223
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_colldown" to="." method="_on_attack_colldown_timeout"]
