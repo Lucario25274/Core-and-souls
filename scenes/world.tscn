@@ -348,11 +348,6 @@ position = Vector2(33, 43)
 [node name="slime" parent="." instance=ExtResource("11_e3hyu")]
 position = Vector2(277, 148)
 
-[node name="collision" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
-polygon = PackedVector2Array(0, 0, 192, 0, 192, -21, 223, -21, 224, 0, 415, -1, 415, 97, 415, 97, 417, 126, 416, 127, 415, 240, 0, 240, 0, 9, -45, 21, -57, 200, -61, 264, 159, 308, 394, 303, 486, 246, 506, 149, 515, 64, 483, -23, 383, -60, 241, -68, 42, -68, -10, -45, -14, -26, 0, 9)
-
 [node name="sideworld_transitionpoint" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sideworld_transitionpoint"]
