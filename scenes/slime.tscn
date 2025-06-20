@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://byib0mrhwhxqy"]
+[gd_scene load_steps=30 format=3 uid="uid://byib0mrhwhxqy"]
 
 [ext_resource type="Script" uid="uid://1f6uprk7155l" path="res://script/slime.gd" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://o5hqn52e6lma" path="res://art/charakter/slime-Sheet.png" id="2_n6pvg"]
+[ext_resource type="AudioStream" uid="uid://c3wfhdlpkjudd" path="res://music_and_sound/Hit.wav" id="3_pjw23"]
+[ext_resource type="AudioStream" uid="uid://c7ldovmg04j3y" path="res://music_and_sound/Hurt.wav" id="4_2npkn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
 atlas = ExtResource("2_n6pvg")
@@ -221,6 +223,12 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_p2gj0")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pjw23")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2npkn")
 
 [connection signal="area_entered" from="AnimatedSprite2D/detection-area" to="." method="_on_detectionarea_area_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/detection-area" to="." method="_on_detectionarea_body_entered"]

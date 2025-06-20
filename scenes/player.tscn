@@ -1,8 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://culj7uwvwwq5y"]
+[gd_scene load_steps=42 format=3 uid="uid://culj7uwvwwq5y"]
 
 [ext_resource type="Script" uid="uid://c3ps6bruqtx2o" path="res://script/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://de3pwjs5iniko" path="res://art/charakter/sprite_cheet_figur_gespiegelt.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bnkquxriii5xw" path="res://art/charakter/sprite_cheet_figur.png" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c7ldovmg04j3y" path="res://music_and_sound/Hurt.wav" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://behpdkjoq8qqe" path="res://music_and_sound/sword-sound-260274.mp3" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dx0e4"]
 atlas = ExtResource("2_dqkch")
@@ -313,6 +315,12 @@ limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dqkch")
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qlg0r")
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

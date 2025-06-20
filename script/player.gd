@@ -27,6 +27,7 @@ func _physics_process(_delta):
 	if health <= 0:
 		player_alive = false  #play end_screen
 		health = 0
+
 		print("player dead")
 		self.queue_free()
 
@@ -94,6 +95,7 @@ func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true :
 		health = health - 10
 		enemy_attack_cooldown = false
+		$hurt.play()
 		$attack_colldown.start()
 		print(health)
 
@@ -107,6 +109,7 @@ func attack():
 		attack_ip = true
 		global.player_current_attack = true
 		sprite.play("attack_right")
+		$attack.play()
 		$deal_attack_timer.start()
 
 func _on_deal_attack_timer_timeout():

@@ -313,6 +313,7 @@ sources/4 = SubResource("TileSetAtlasSource_jtp18")
 size = Vector2(32, 19)
 
 [node name="sideworld" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_8h6ss")
 
 [node name="grass" type="TileMapLayer" parent="."]

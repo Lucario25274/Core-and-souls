@@ -9,7 +9,7 @@ func _ready():
 		$player.position.x = global.player_exit_sideworld_posx
 		$player.position.y = global.player_exit_sideworld_posy
 
-func _process(delta):
+func _process(_delta):
 		change_scene()
 
 func _on_sideworld_transitionpoint_body_entered(body):

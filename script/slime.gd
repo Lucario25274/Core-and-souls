@@ -7,10 +7,13 @@ var player = null
 
 var health = 100
 var player_inattack_range = false
+var slime_death = false
+
 
 func _physics_process(_delta):
 
 	if not health <= 0:
+		slime_death = false
 		if player_chase:
 			position += (player.position - position)/speed
 			$AnimatedSprite2D.play("walk")
@@ -22,7 +25,10 @@ func _physics_process(_delta):
 		else:
 			$AnimatedSprite2D.play("idle")
 	else:
-		print("tot animation")
+		if slime_death:
+			return
+		slime_death = true
+		$death.play()
 		$AnimatedSprite2D.play("death")
 		await $AnimatedSprite2D.animation_finished
 		print("wirklich tot")
@@ -60,5 +66,6 @@ func deal_with_damage():
 	if player_inattack_range and global.player_current_attack == true:
 		global.player_current_attack = false
 		health = health - 20
-		self.position += (player.position + position*4)/speed
+		self.position += (player.position + position*6)/speed
+		$hit.play()
 		print("slime health = ",health)
