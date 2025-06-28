@@ -25,9 +25,8 @@ func _physics_process(_delta):
 	attack()
 
 	if health <= 0:
-		player_alive = false  #play end_screen
+		player_alive = false
 		health = 0
-
 		print("player dead")
 		self.queue_free()
 
@@ -41,7 +40,6 @@ func _physics_process(_delta):
 			set_animation("idle_")
 			sprite.play("idle_right")
 		else:
-			 #Optional: Animation oder Logik für Angriff, falls attack_ip == true
 			pass
 	else:
 		set_animation("walk_")
@@ -116,3 +114,17 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack = false
 	attack_ip = false
+
+	#if health <= 0:
+		#player_alive = false  #play end_screen
+		#health = 0
+#
+		#print("player dead")
+		#self.queue_free()
+
+
+#func _update_health():
+	#var healthbar = $healthbar
+		#healthbar.visible = false
+	#else:
+		#healthbar.visible = true
