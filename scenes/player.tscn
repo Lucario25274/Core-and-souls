@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://culj7uwvwwq5y"]
+[gd_scene format=3 uid="uid://culj7uwvwwq5y"]
 
 [ext_resource type="Script" uid="uid://c3ps6bruqtx2o" path="res://script/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://de3pwjs5iniko" path="res://art/charakter/sprite_cheet_figur_gespiegelt.png" id="2_dqkch"]
@@ -266,41 +266,42 @@ size = Vector2(10.5, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 16.1245
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=275123361]
 y_sort_enabled = true
 texture_filter = 1
 collision_layer = 3
 script = ExtResource("1_qhqgy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038547317]
 position = Vector2(4, -19)
 scale = Vector2(0.773438, 0.773438)
 sprite_frames = SubResource("SpriteFrames_ygbnx")
 animation = &"idle_right"
 autoplay = "idle_right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617286674]
 y_sort_enabled = true
 position = Vector2(2.75, -8.5)
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="player_hitbox" type="Area2D" parent="."]
+[node name="player_hitbox" type="Area2D" parent="." unique_id=815544834]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=948611209]
+visible = false
 position = Vector2(1, -15)
 shape = SubResource("CircleShape2D_qhqgy")
 
-[node name="attack_colldown" type="Timer" parent="."]
+[node name="attack_colldown" type="Timer" parent="." unique_id=1335746548]
 
-[node name="deal_attack_timer" type="Timer" parent="."]
+[node name="deal_attack_timer" type="Timer" parent="." unique_id=134818963]
 
-[node name="hurt" type="AudioStreamPlayer" parent="."]
+[node name="hurt" type="AudioStreamPlayer" parent="." unique_id=784439826]
 stream = ExtResource("4_dqkch")
 
-[node name="attack" type="AudioStreamPlayer" parent="."]
+[node name="attack" type="AudioStreamPlayer" parent="." unique_id=130986347]
 stream = ExtResource("5_qlg0r")
 
-[node name="world_camera" type="Camera2D" parent="."]
+[node name="world_camera" type="Camera2D" parent="." unique_id=2097378163]
 zoom = Vector2(3.5, 3.5)
 limit_left = 0
 limit_top = 0
@@ -311,7 +312,7 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="sideworld_camera" type="Camera2D" parent="."]
+[node name="sideworld_camera" type="Camera2D" parent="." unique_id=501078382]
 position = Vector2(36, -34)
 zoom = Vector2(3.5, 3.5)
 limit_left = 0
@@ -323,13 +324,13 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="healthbar" type="ProgressBar" parent="."]
+[node name="healthbar" type="ProgressBar" parent="." unique_id=998345429]
 visible = false
 offset_left = -37.0
 offset_right = 40.0
 offset_bottom = 27.0
 
-[node name="regin_timer" type="Timer" parent="."]
+[node name="regin_timer" type="Timer" parent="." unique_id=887687173]
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
